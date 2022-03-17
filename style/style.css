@@ -1,4 +1,17 @@
-body {
-  background-color: gray;
+:root {
+  --mainColor: #f5af02;
+  --secondaryColor:#0064D2;
+}
+
+.bg-main {
+  background-color: var(--mainColor);
+}
+
+.text-mainColor {
+  color: var(--mainColor);
+}
+
+.text-secondaryColor {
+  color: var(--secondaryColor);
 }
 /*# sourceMappingURL=style.css.map */
