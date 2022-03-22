@@ -6,19 +6,21 @@ const prices = document.querySelectorAll(".itemtile-price");
 const description =
   "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
 class Ad {
-  constructor(
+  constructor({
     id,
     title,
     description,
     imgSrc,
+    location,
     price,
     isGift = false,
-    isVB = false
-  ) {
+    isVB = false,
+  }) {
     this.id = id;
     this.title = title;
     this.description = description;
     this.imgSrc = imgSrc;
+    this.location = location;
     this.price = price;
     this.isGift = isGift;
     this.isVB = isVB;
@@ -28,7 +30,12 @@ function getStyledPrice(unstyledPrice) {
   console.log(25, unstyledPrice);
   switch (unstyledPrice.substring(unstyledPrice.length - 1)) {
     case "€":
-      return Number(unstyledPrice.slice(0, unstyledPrice.length - 2));
+      return Number(
+        unstyledPrice
+          .slice(0, unstyledPrice.length - 2)
+          .split(".")
+          .join(" ")
+      );
     case "n":
       return 0;
     case "B":
@@ -51,15 +58,16 @@ const adsInDb = [];
 for (let i = 0; i < imgs.length; i++) {
   console.log(prices[i].innerHTML);
   adsInDb.push(
-    new Ad(
-      i + 1,
-      h3Title[i].innerHTML.slice(2).trim(),
-      description,
-      `./img/adsImg/${i}.JPG`,
-      getStyledPrice(prices[i].innerHTML),
-      isGift(prices[i].innerHTML),
-      isVB(prices[i].innerHTML)
-    )
+    new Ad({
+      id: i + 1,
+      title: h3Title[i].innerHTML.slice(2).trim(),
+      description: description,
+      imgSrc: `/img/${i}.JPG`,
+      location: locs[i].innerHTML,
+      price: getStyledPrice(prices[i].innerHTML),
+      isGift: isGift(prices[i].innerHTML),
+      isVB: isVB(prices[i].innerHTML),
+    })
   );
 }
 

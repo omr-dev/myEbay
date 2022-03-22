@@ -1,17 +1,14 @@
-:root {
-  --mainColor: #f5af02;
-  --secondaryColor:#0064D2;
-}
-
-.bg-main {
-  background-color: var(--mainColor);
-}
-
-.text-mainColor {
-  color: var(--mainColor);
-}
-
-.text-secondaryColor {
-  color: var(--secondaryColor);
+.price-text {
+  color: white !important;
+  background-color: red !important;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 10px;
+  font-weight: bold !important;
 }
 /*# sourceMappingURL=style.css.map */
