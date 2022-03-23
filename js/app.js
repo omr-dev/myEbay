@@ -1,5 +1,5 @@
-import { users } from "../js/users.js";
-import { pages } from "../js/pages.js";
+import { users } from "./data/users.js";
+import { pages } from "./data/pages.js";
 const db = new DB("./app/dbTable.json");
 const allAdsInDb = db.getAllAdsInDB().then((data) => {
   updateUI(data);
