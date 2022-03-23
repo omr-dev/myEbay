@@ -11,4 +11,22 @@
   border-radius: 10px;
   font-weight: bold !important;
 }
+
+.img-big-ad {
+  position: relative !important;
+}
+
+.cardLink {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.adCard:hover {
+  border: 2px solid red !important;
+}
+
+.img-random-profile {
+  width: 100% !important;
+  border-radius: 50%;
+}
 /*# sourceMappingURL=style.css.map */

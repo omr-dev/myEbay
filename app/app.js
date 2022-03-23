@@ -9,7 +9,8 @@ const adsList = document.querySelector("#adsList");
 function updateUI(data) {
   data.forEach((ad) => {
     const newAdCard = `
-        <div class="card" style="width: 18rem;">
+    <a href="showAdDetails.html?id=${ad.id }" class="cardLink">
+        <div class="card adCard" style="width: 18rem;">
                 <img src="${ad.imgSrc}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${ad.title}</h5>
@@ -19,6 +20,7 @@ function updateUI(data) {
                     <p class="card-text price-text">${getPriceText(ad)}</p>
                 </div>
             </div>
+            </a>
         `;
     adsList.innerHTML += newAdCard;
   });
