@@ -1,3 +1,5 @@
+import { users } from "../js/users.js";
+
 const db = new DB("./app/dbTable.json");
 const allAdsInDb = db.getAllAdsInDB().then((data) => {
   updateUI(data);
@@ -9,7 +11,7 @@ const adsList = document.querySelector("#adsList");
 function updateUI(data) {
   data.forEach((ad) => {
     const newAdCard = `
-    <a href="showAdDetails.html?id=${ad.id }" class="cardLink">
+    <a href="showAdDetails.html?id=${ad.id}" class="cardLink">
         <div class="card adCard" style="width: 18rem;">
                 <img src="${ad.imgSrc}" class="card-img-top" alt="...">
                 <div class="card-body">
