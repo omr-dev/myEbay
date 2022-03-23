@@ -1,0 +1,20 @@
+{
+  "name": "myEbay",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omr-dev/myEbay.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omr-dev/myEbay/issues"
+  },
+  "homepage": "https://github.com/omr-dev/myEbay#readme"
+}

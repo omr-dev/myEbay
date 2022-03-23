@@ -11,9 +11,10 @@
 
 
     <link rel="stylesheet" href="./style/style.css">
-
-    <title>My Ebay</title>
     <script src="https://kit.fontawesome.com/1afe3fe733.js" crossorigin="anonymous"></script>
+    <script src="./app/app.js" defer type="module"></script>
+    <title>My Ebay</title>
+
 
 </head>
 
@@ -44,44 +45,46 @@
                 </div>
             </div>
         </nav>
-    </header>
-    <div class="container-lg  ">
+        <div class="container-lg mt-3 ">
 
 
 
-        <form>
-            <div class="d-flex flex-row justify-content-center gap-2">
+            <form>
+                <div class="d-flex flex-row justify-content-center gap-2">
 
 
-                <input type="text" class="form-control" id="search-query" placeholder="Was suchst du?">
-                <div class="input-group">
-                    <input type=" text" class="form-control" placeholder="PLZ oder Ort">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">Ganzer Ort</button>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">+ 5 km</a></li>
-                        <li><a class="dropdown-item" href="#">+ 10 km</a></li>
-                        <li><a class="dropdown-item" href="#">+ 20 km</a></li>
-                        <li><a class="dropdown-item" href="#">+ 30 km</a></li>
-                        <li><a class="dropdown-item" href="#">+ 50 km</a></li>
-                        <li><a class="dropdown-item" href="#">+ 100 km</a></li>
-                        <li><a class="dropdown-item" href="#">+ 150 km</a></li>
-                        <li><a class="dropdown-item" href="#">+ 200 km</a></li>
+                    <input type="text" class="form-control" id="search-query" placeholder="Was suchst du?">
+                    <div class="input-group">
+                        <input type=" text" class="form-control" placeholder="PLZ oder Ort">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Ganzer Ort</button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">+ 5 km</a></li>
+                            <li><a class="dropdown-item" href="#">+ 10 km</a></li>
+                            <li><a class="dropdown-item" href="#">+ 20 km</a></li>
+                            <li><a class="dropdown-item" href="#">+ 30 km</a></li>
+                            <li><a class="dropdown-item" href="#">+ 50 km</a></li>
+                            <li><a class="dropdown-item" href="#">+ 100 km</a></li>
+                            <li><a class="dropdown-item" href="#">+ 150 km</a></li>
+                            <li><a class="dropdown-item" href="#">+ 200 km</a></li>
 
 
 
-                    </ul>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-primary "><i class="fa-solid fa-magnifying-glass"></i>
+                        Finden</button>
+
                 </div>
-                <button type="button" class="btn btn-primary "><i class="fa-solid fa-magnifying-glass"></i>
-                    Finden</button>
-
-            </div>
-        </form>
+            </form>
 
 
-    </div>
+        </div>
+    </header>
+    <!-- PAGES -->
 
-    <div class="container-lg pt-5">
+    <!-- homepage -->
+    <div class="container-lg pt-5" id="homepage">
         <div class="row row-cols-auto g-1 justify-content-between" id="adsList">
 
 
@@ -89,13 +92,92 @@
 
     </div>
 
+    <!-- ad details page -->
+    <div class="container-lg mt-3 " id="adsDetailsPage">
+        <div class="row">
+            <h3 class="bg-danger text-white" id="adTitle"></h3>
+        </div>
+        <div class="row">
+            <div class="col-9 ">
+                <div class="img-big-ad justify-content-end">
+                    <img src="img/big1.JPG" class="img-fluid text-end" id="adBigImg">
+                    <div class="card d-flex flex-row justify-content-between p-3 ad-info-sub-img">
+                        <h5 class="card-title bg-success text-white p-2" id="adPrice">100 €</h5>
+                        <p class="card-text" id="adLocation">
+                            <i class="fa-solid fa-location-dot"></i> Köln
+                        </p>
+                        <p class="card-text"><i class="fa-solid fa-calendar"></i> 21.03.2022</p>
+                        <p class="card-text">
+                            <i class="fa-solid fa-eye"></i> 54
+                        </p>
+                    </div>
+                </div>
 
+
+                <div class="card ad-details p-3 m-3">
+                    <h5 class="card-title">Beschreibung</h5>
+                    <p class="card-text" id="adDescription">Wir haben denselben Stuhl wie auf dem Bild noch original
+                        verpackt im Keller!
+                        Wir haben damals zwei gekauft aber mein Freund hat dann direkt einen Stuhl von der Arbeit
+                        bekommen. Deswegen haben wir den nicht ausgepackt.
+
+                        Der Stuhl hält bis 120 Kilo aus und ist in der Höhe verstellbar.
+
+                        Gekauft haben wir den Stuhl für 39,99€.
+
+                        Abzuholen in 51766 Engelskirchen.
+
+                        Bei Rückfragen gerne melden! :)</p>
+                </div>
+            </div>
+            <div class="col-3 d-flex flex-column gap-2">
+
+                <div class="ad-action-buttons card gap-2 p-2">
+                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-message"></i> Nachricht
+                        schreiben</button>
+                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-heart"></i> Zur Merkliste
+                        hinzufügen</button>
+                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-share"></i> Anzeige
+                        teilen</button>
+
+                </div>
+                <div class="ad-owner card p-2">
+                    <div class="row">
+                        <div class="col-3">
+                            <img class="img-random-profile" src="./img/randomProfile.jpg">
+                            <p class="ownerUserName text-center card-title">Max</p>
+                        </div>
+                        <div class="col-9 owner-details">
+
+                            <p class="isFriendly"><i class="fa-solid fa-face-sunglasses"></i> Besonders freundlich
+                            </p>
+                            <p class="isConfident"><i class="fa-solid fa-star-sharp"></i> Besonders zuverlässig</p>
+                            <p class="isCompany"><i class="fa-solid fa-person-circle-check"></i> Privater Nutzer</p>
+                            <p class="activeSince">Aktiv seit 05.02.2017</p>
+                            <div class="owner-sub-details row">
+
+                                <p class="totalAds col">5 Anzeigen online</p>
+
+
+                                <p class="follow col"> <button type="button" class="btn btn-primary "><i
+                                            class="fa-solid fa-address-book"></i>
+                                        Folgen</button></p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS FILES -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
     <script src="./app/dbSimulator.js"></script>
-    <script src="./app/app.js"></script>
+
 
 </body>
 
