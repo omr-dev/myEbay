@@ -1,26 +1,38 @@
 export const pages = [
   {
     id: 1,
-    idCode: "home",
+    idCode: "homePage",
     title: "Home",
     accessGroups: "loggedInUsers,loggedOutUsers",
   },
   {
     id: 2,
-    idCode: "adDetails",
+    idCode: "adsDetailsPage",
     title: "Details",
     accessGroups: "members,loggedOutUsers",
   },
   {
     id: 3,
-    idCode: "admin",
+    idCode: "adminPage",
     title: "Admin",
     accessGroups: "administrators",
   },
   {
     id: 4,
-    idCode: "login",
+    idCode: "loginPage",
     title: "Login",
     accessGroups: "loggedOutUsers",
+  },
+  {
+    id: 5,
+    idCode: "registerPage",
+    title: "Register",
+    accessGroups: "loggedOutUsers",
+  },
+  {
+    id: 6,
+    idCode: "addAdPage",
+    title: "AddAdPage",
+    accessGroups: "loggedInUsers",
   },
 ];

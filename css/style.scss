@@ -1,6 +1,10 @@
 .nav-link {
   cursor: pointer;
 }
+.active.nav-link {
+  background-color: black !important;
+  color: white !important;
+}
 
 .price-text {
   color: white !important;
