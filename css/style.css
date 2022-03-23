@@ -1,3 +1,7 @@
+.nav-link {
+  cursor: pointer;
+}
+
 .price-text {
   color: white !important;
   background-color: red !important;
