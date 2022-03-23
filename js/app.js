@@ -3,8 +3,10 @@ import { pages } from "./data/pages.js";
 
 //globals
 let currentPageIdCode = "homePage";
+let currentUser = users.find((m) => m.login === "anonymous");
 
 //define elements
+const navItemLoggedAsElem = document.querySelector(".nav-link.loggedAs");
 const navItemHomeElem = document.querySelector(".nav-link.home");
 const navItemAddAdElem = document.querySelector(".nav-link.addAd");
 const navItemLoginElem = document.querySelector(".nav-link.login");
@@ -13,6 +15,10 @@ const navItemAdminElem = document.querySelector(".nav-link.admin");
 const navItemDetailsElem = document.querySelector(".nav-link.details");
 
 //set up elements
+navItemLoggedAsElem.addEventListener("click", function (e) {
+  pageManager("homePage");
+  logOut();
+});
 navItemHomeElem.addEventListener("click", function (e) {
   pageManager("homePage");
 });
@@ -65,8 +71,18 @@ const pageManager = (idCode) => {
   navItemElems[idCode].classList.add("active");
 };
 
+const userManager = (user) => {
+  if (user.login === "anonymous") {
+    navItemLoggedAsElem.style.display = "none";
+  } else {
+    navItemLoggedAsElem.innerHTML = `angemeldet als: ${user.firstName} ${user.lastName} Ausloggen`;
+    navItemLoggedAsElem.style.display = "block";
+  }
+};
+
 //PAGE LOAD
 pageManager(currentPageIdCode);
+userManager(currentUser);
 
 //////////////////////////////////////////OLD CODES
 
