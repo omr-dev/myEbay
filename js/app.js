@@ -115,7 +115,7 @@ const atLeastOneTermMatchesInLists = (list1, list2) => {
 
 const loadHomePage = () => {
   (async () => {
-    const response = await fetch("./data/dbTable.json");
+    const response = await fetch("./js/data/dbTable.json");
     const adsInDb = await response.json();
     adsInDb.forEach((ad) => {
       adsList.innerHTML += createAdCard(ad);
