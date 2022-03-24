@@ -14,13 +14,15 @@ const navItemRegisterElem = document.querySelector(".nav-item.registerPage");
 const navItemAdminElem = document.querySelector(".nav-item.adminPage");
 const navItemDetailsElem = document.querySelector(".nav-item.adsDetailsPage");
 const navItemNodeElems = document.querySelectorAll("nav .nav-item");
+const adsListElem = document.querySelector("#adsList");
 
 //set up elements
 navItemLoggedAsElem.addEventListener("click", function (e) {
-  pageManager("homePage");
   logOut();
+  pageManager("homePage");
 });
 navItemHomeElem.addEventListener("click", function (e) {
+  loadHomePage();
   pageManager("homePage");
 });
 navItemAddAdElem.addEventListener("click", function (e) {
@@ -110,45 +112,43 @@ const atLeastOneTermMatchesInLists = (list1, list2) => {
   }
   return false;
 };
+
+const loadHomePage = () => {
+  (async () => {
+    const response = await fetch("./data/dbTable.json");
+    const adsInDb = await response.json();
+    adsInDb.forEach((ad) => {
+      adsList.innerHTML += createAdCard(ad);
+    });
+  })();
+};
+const createAdCard = (ad) => {
+  return `
+  <a href="showAdDetails.html?id=${ad.id}" class="cardLink">
+      <div class="card adCard" style="width: 18rem;">
+              <img src="${ad.imgSrc}" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title">${ad.title}</h5>
+                  <p class="card-text"><i class="fa-solid fa-location-dot"></i> ${
+                    ad.location
+                  }</p>
+                  <p class="card-text price-text">${getPriceText(ad)}</p>
+              </div>
+          </div>
+          </a>
+      `;
+};
+const getPriceText = (ad) => {
+  if (ad.price > 0) {
+    return ad.price + " €";
+  } else if (ad.isGift) {
+    return "Zu Verschenken";
+  } else if (ad.isVB) {
+    return "VB";
+  }
+};
 //PAGE LOAD
 pageManager(currentPageIdCode);
 userManager(currentUser);
 menuManager();
-
-//////////////////////////////////////////OLD CODES
-
-// const db = new DB("./app/dbTable.json");
-// const allAdsInDb = db.getAllAdsInDB().then((data) => {
-//   updateUI(data);
-// });
-
-// const adsList = document.querySelector("#adsList");
-
-// function updateUI(data) {
-//   data.forEach((ad) => {
-//     const newAdCard = `
-//     <a href="showAdDetails.html?id=${ad.id}" class="cardLink">
-//         <div class="card adCard" style="width: 18rem;">
-//                 <img src="${ad.imgSrc}" class="card-img-top" alt="...">
-//                 <div class="card-body">
-//                     <h5 class="card-title">${ad.title}</h5>
-//                     <p class="card-text"><i class="fa-solid fa-location-dot"></i> ${
-//                       ad.location
-//                     }</p>
-//                     <p class="card-text price-text">${getPriceText(ad)}</p>
-//                 </div>
-//             </div>
-//             </a>
-//         `;
-//     adsList.innerHTML += newAdCard;
-//   });
-// }
-// function getPriceText(ad) {
-//   if (ad.price > 0) {
-//     return ad.price + " €";
-//   } else if (ad.isGift) {
-//     return "Zu Verschenken";
-//   } else if (ad.isVB) {
-//     return "VB";
-//   }
-// }
+navItemHomeElem.click();
