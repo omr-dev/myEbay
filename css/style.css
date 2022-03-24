@@ -2,8 +2,11 @@
   cursor: pointer;
 }
 
-.active.nav-link {
+.active.nav-item {
   background-color: black !important;
+}
+
+.active.nav-item .nav-link {
   color: white !important;
 }
 
